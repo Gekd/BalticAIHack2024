@@ -8,13 +8,7 @@ body {
     min-height: 97vh;
 }
 
-.bullet-input {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
+
 
 h1 {
     text-align: center;
@@ -112,6 +106,24 @@ label {
     background-color: #45a049;
 }
 
+label {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center align items vertically */
+    justify-content: space-between; /* Space between checkbox and delete icon */
+}
+
+/* Style the delete icon */
+.delete-icon {
+    margin-left: 10px; /* Space between checkbox and delete icon */
+    vertical-align: middle; /* Align icon with text */
+    filter: brightness(0) saturate(100%) invert(21%) sepia(100%) saturate(5600%) hue-rotate(359deg) brightness(94%) contrast(100%); /* Make icon red */
+}
+
+/* Add margin to the checkbox container */
+#checkboxContainer {
+    margin: 10px 0; /* Space around the checkbox container */
+}
+
 /* Add some margin to the button */
 #sendDataButton {
     margin-top: 20px;
@@ -158,3 +170,21 @@ label {
     filter: grayscale(100%) brightness(0%);
 }
 
+
+.styled-input {
+    width: 100%; /* Full width */
+    padding: 10px; /* Add padding */
+    font-size: 16px; /* Increase font size */
+    border: 2px solid #ccc; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    outline: none; /* Remove default outline */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+/* Hover and focus state for input */
+.styled-input:hover,
+.styled-input:focus {
+    border-color: #6c63ff; /* Change border color on hover and focus */
+    box-shadow: 2px 2px 12px rgba(108, 99, 255, 0.3); /* Add a stronger shadow on focus */
+}

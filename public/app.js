@@ -1,18 +1,11 @@
-// Function to fetch and update checkboxes based on server data
 function fetchAndUpdateCheckboxes() {
     fetch('/get-checkbox-data')
         .then(response => response.json())
         .then(json => {
-            // Update the checkboxes based on the JSON data received
             json.forEach(item => {
-                if (item.id === 0) {
-                    document.getElementById('checkbox1').checked = item.checked;
-                }
-                if (item.id === 1) {
-                    document.getElementById('checkbox2').checked = item.checked;
-                }
-                if (item.id === 2) {
-                    document.getElementById('checkbox3').checked = item.checked;
+                const checkbox = document.getElementById(`checkbox${item.id}`);
+                if (checkbox) {
+                    checkbox.checked = item.checked;
                 }
             });
         })
@@ -20,27 +13,78 @@ function fetchAndUpdateCheckboxes() {
 }
 
 function showPopup(event) {
-    // Prevent default form submission for demo purposes
-    event.preventDefault();
+    event.preventDefault(); // Prevent page reload
 
-    // Show the popup
-    const popup = document.getElementById('popup');
-    popup.classList.add('show');
+    const inputElement = document.getElementById('idea');
+    const labelText = inputElement.value.trim();
 
-    // Hide the popup after 3 seconds
-    setTimeout(() => {
-        popup.classList.remove('show');
-    }, 3000);
+    if (labelText) {
+        let checkboxLabels = JSON.parse(localStorage.getItem('checkboxLabels')) || [];
+        checkboxLabels.push(labelText);
+        localStorage.setItem('checkboxLabels', JSON.stringify(checkboxLabels));
 
-    // Optionally, submit the form after showing the popup
+        inputElement.value = ''; // Clear input field
+
+        const popup = document.getElementById('popupMessage');
+        popup.innerText = `"${labelText}" added successfully!`;
+        popup.style.display = 'block';
+
+        setTimeout(() => {
+            popup.style.display = 'none';
+        }, 2000);
+
+        // Render the checkboxes after adding new input
+        renderCheckboxes();
+    }
 }
 
-// Call the function when the page loads
+function renderCheckboxes() {
+    const checkboxContainer = document.getElementById('checkboxContainer');
+    checkboxContainer.innerHTML = ''; // Clear previous checkboxes
+
+    const checkboxLabels = JSON.parse(localStorage.getItem('checkboxLabels')) || [];
+    checkboxLabels.forEach((label, index) => {
+        const labelElement = document.createElement('label');
+        const checkboxElement = document.createElement('input');
+        checkboxElement.type = 'checkbox';
+        checkboxElement.id = `checkbox${index}`;
+
+        labelElement.appendChild(checkboxElement);
+        labelElement.append(` ${label}`);
+
+        const deleteButton = document.createElement('img');
+        deleteButton.src = '/images/delete.svg';
+        deleteButton.alt = 'Delete';
+        deleteButton.classList.add('delete-icon');
+        deleteButton.style.width = '20px';
+        deleteButton.style.height = '20px';
+        deleteButton.style.cursor = 'pointer';
+        deleteButton.style.marginLeft = '10px';
+        deleteButton.style.verticalAlign = 'middle';
+
+        deleteButton.addEventListener('click', () => {
+            deleteCheckbox(index);
+        });
+
+        labelElement.appendChild(deleteButton);
+        checkboxContainer.appendChild(labelElement);
+        checkboxContainer.appendChild(document.createElement('br'));
+    });
+}
+
+function deleteCheckbox(index) {
+    let checkboxLabels = JSON.parse(localStorage.getItem('checkboxLabels')) || [];
+    checkboxLabels.splice(index, 1); // Remove checkbox by index
+    localStorage.setItem('checkboxLabels', JSON.stringify(checkboxLabels));
+    renderCheckboxes(); // Re-render checkboxes after deletion
+}
+
+// Render checkboxes on page load
 document.addEventListener('DOMContentLoaded', () => {
-    fetchAndUpdateCheckboxes();
+    renderCheckboxes();
 });
 
-// OPTIONAL: If you want the checkboxes to automatically update every few seconds, you can use setInterval.
+// Optional: Periodic updates (if needed)
 setInterval(() => {
-    fetchAndUpdateCheckboxes(); // Fetch updated checkbox data every 5 seconds
-}, 1000); // Adjust the interval as needed (5000 ms = 5 seconds)
+    fetchAndUpdateCheckboxes(); // Update checkbox states periodically
+}, 1000);

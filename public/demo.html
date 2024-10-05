@@ -19,19 +19,15 @@
 
     <div class="center">
         <form id="bg" style="display: block;">
-            <label>
-                <input type="checkbox" id="checkbox1"> Test 1
-            </label>
-            <br>
-            <label>
-                <input type="checkbox" id="checkbox2"> Option 2
-            </label>
-            <br>
-            <label>
-                <input type="checkbox" id="checkbox3"> Option 3
-            </label>
+            <div id="checkboxContainer">
+                <!-- Dynamically created checkboxes will be added here -->
+            </div>
         </form>
+        <div id="bg">
+            <button id="addCheckbox" class="button">Start session</button>
+        </div>
     </div>
+    
     <div class="footer">
         <p>Created by Team 34</p>
         <p>Follow us on</p>
@@ -42,5 +38,6 @@
         </div>
     </div>
     <script src="/app.js"></script>
+    
 </body>
 </html>
