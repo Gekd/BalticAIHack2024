@@ -1,39 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Checkbox JSON App</title>
-        <!-- Bootstrap CSS -->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Optional Bootstrap JS (for buttons and forms) -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-    </head>
-        
-    
-    <body>
-        <div class="container">
-            <h1 class="text-center mt-5">Checkbox JSON App</h1>
-            <div class="row justify-content-center">
-                <form id="checkboxForm" class="col-md-6">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="checkbox1">
-                        <label class="form-check-label" for="checkbox1">Option 1</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="checkbox2">
-                        <label class="form-check-label" for="checkbox2">Option 2</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="checkbox3">
-                        <label class="form-check-label" for="checkbox3">Option 3</label>
-                    </div>
-                    <button type="button" id="sendDataButton" class="btn btn-primary btn-block mt-3">Send JSON Data</button>
-                </form>
-            </div>
-        </div>
-    </body>
-        
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox JSON App</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Checkbox App</h1>
+    <form id="checkboxForm">
+        <label>
+            <input type="checkbox" id="checkbox1"> Oled pede?
+        </label>
+        <br>
+        <label>
+            <input type="checkbox" id="checkbox2"> Option 2
+        </label>
+        <br>
+        <label>
+            <input type="checkbox" id="checkbox3"> Option 3
+        </label>
+        <br>
+    </form>
 
+    <script src="/app.js"></script>
+</body>
 </html>
