@@ -6,14 +6,17 @@ const app = express();
 app.use(express.json());
 
 // Variable to store received JSON data (this will be updated with the external POST request)
-let checkboxData = [
-    { checkboxText: 'Oled pede?', checked: false },
-    { checkboxText: 'Option 2', checked: false },
-    { checkboxText: 'Option 3', checked: false }
-];
+let checkboxData = [];
 
 // Serve static files (HTML, CSS, JS) from the 'public' folder
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+app.get('/demo', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'demo.html'));
+});
 
 // Route to receive JSON data from an external application
 app.post('/receive-checkbox-data', (req, res) => {

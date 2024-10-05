@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bity</title>
+    <title>Checkbox JSON App</title>
     <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
@@ -18,19 +18,19 @@
     </div>
 
     <div class="center">
-
-        <div id="bg">
-            <p>Pick us</p>
-            <div id="popup" class="popup hidden">Added successfully!</div>
-            <div class="bullet-input">
-                <form id="inputForm" onsubmit="showPopup(event)">
-                    <label for="idea">Insert bullet points one by one</label><br>
-                    <input type="text" id="idea" name="idea"><br>
-                    <button type="submit" class="button" style="margin: 0;">Add</button>
-                </form>
-            </div>
-            <a href="/demo" class="button">Go to dashboard</a>
-        </div>
+        <form id="bg" style="display: block;">
+            <label>
+                <input type="checkbox" id="checkbox1"> Test 1
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" id="checkbox2"> Option 2
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" id="checkbox3"> Option 3
+            </label>
+        </form>
     </div>
     <div class="footer">
         <p>Created by Team 34</p>
@@ -40,9 +40,7 @@
             <a href="https://www.youtube.com"><img src="images/youtube.svg"></img></a>
             <a href="https://www.instagram.com"><img src="images/instagram.svg"></img></a>
         </div>
-
     </div>
-
     <script src="/app.js"></script>
 </body>
 </html>
