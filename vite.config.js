@@ -1,5 +1,4 @@
 import { defineConfig } from 'vite';
-import path from 'path';
 
 export default defineConfig({
     root: './', // Set root to project root
@@ -8,6 +7,7 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 index: 'public/index.html', // Entry point for HTML
+                demo: 'public/demo.html',    // Entry point for the demo HTML
                 app: 'src/app.js', // Entry point for your main script
             },
         },
