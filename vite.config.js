@@ -6,9 +6,9 @@ export default defineConfig({
         outDir: './dist', // Output directory for production builds
         rollupOptions: {
             input: {
-                index: 'public/index.html', // Entry point for HTML
-                demo: 'public/demo.html',    // Entry point for the demo HTML
-                app: 'src/app.js', // Entry point for your main script
+                index: './public/index.html', // Entry point for HTML
+                demo: './public/demo.html',    // Entry point for the demo HTML
+                app: './src/app.js', // Entry point for your main script
             },
         },
         emptyOutDir: true, // Allow Vite to empty the output directory
