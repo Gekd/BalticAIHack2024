@@ -53,7 +53,7 @@ function renderCheckboxes() {
         labelElement.append(` ${label}`);
 
         const deleteButton = document.createElement('img');
-        deleteButton.src = '/images/delete.svg';
+        deleteButton.src = '/public/images/delete.svg';
         deleteButton.alt = 'Delete';
         deleteButton.classList.add('delete-icon');
         deleteButton.style.width = '20px';
@@ -70,6 +70,10 @@ function renderCheckboxes() {
         checkboxContainer.appendChild(labelElement);
         checkboxContainer.appendChild(document.createElement('br'));
     });
+    if (checkboxContainer.lastChild.tagName === 'BR') {
+        checkboxContainer.removeChild(checkboxContainer.lastChild);
+    }
+
 }
 
 function deleteCheckbox(index) {

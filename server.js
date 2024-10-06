@@ -9,15 +9,15 @@ app.use(express.json());
 let checkboxData = [];
 
 // Serve static files (HTML, CSS, JS) from the 'public' folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/')));
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, '/public', 'index.html'));
 });
 app.get('/demo', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'demo.html'));
+    res.sendFile(path.join(__dirname, '/public', 'demo.html'));
 });
 
 // Route to receive JSON data from an external application

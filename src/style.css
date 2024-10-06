@@ -18,13 +18,13 @@ h1 {
 
 /* Center the form on the page */
 #bg {
-    width: 300px;
+    width: 400px;
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px;
+    margin: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,7 +46,7 @@ h1 {
     left: 50%;
     transform: translateX(-50%);
     padding: 10px 20px;
-    background-color: #28a745;
+    background-color: #F07E1D;
     color: white;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -78,21 +78,25 @@ h1 {
 input[type="checkbox"] {
     transform: scale(1.5);
     margin-right: 10px;
-    accent-color: green;
+    accent-color: #F07E1D;
 }
+
 
 /* Space between each checkbox label */
 label {
     display: block;
     font-size: 1.2rem;
-    color: #555;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /* Style the button */
 .button {
     text-decoration: none;
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #F07E1D;
     color: white;
     border: none;
     border-radius: 5px;
@@ -103,14 +107,9 @@ label {
 }
 
 .button:hover {
-    background-color: #45a049;
+    background-color: #d8741b;
 }
 
-label {
-    display: flex; /* Use flexbox for alignment */
-    align-items: center; /* Center align items vertically */
-    justify-content: space-between; /* Space between checkbox and delete icon */
-}
 
 /* Style the delete icon */
 .delete-icon {
@@ -136,6 +135,7 @@ label {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.3); 
     display: flex;
+    margin-bottom: 16px;
 }
 .navbar a img {
     height: 50px;
@@ -161,6 +161,7 @@ label {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 16px;
 }
 
 .footer a img {
@@ -185,6 +186,6 @@ label {
 /* Hover and focus state for input */
 .styled-input:hover,
 .styled-input:focus {
-    border-color: #6c63ff; /* Change border color on hover and focus */
+    border-color: #F07E1D; /* Change border color on hover and focus */
     box-shadow: 2px 2px 12px rgba(108, 99, 255, 0.3); /* Add a stronger shadow on focus */
 }
